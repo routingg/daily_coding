@@ -1,0 +1,36 @@
+# 01. 성적처리
+# 학생들의 성적 데이터를 처리하는 함수를 작성하세요. 평균, 최고점,최저점을 계산하고 등급을 부여하세요.
+# 등급 부여 (A: 90+, B: 80+, C: 70+, D: 60+, F: 60미만)
+
+import math
+
+def process(data):
+    avg = sum(data) / len(data)
+    max_score = max(data)
+    min_score = min(data)
+
+    grades = []
+    for x in data:
+        if x >= 90:
+            grades.append('A')
+        elif x >= 80:
+            grades.append('B')
+        elif x >= 70:
+            grades.append('C')
+        elif x >= 60:
+            grades.append('D')
+        elif x >= 0:
+            grades.append('F') 
+        else:
+            grades.append('Invalid')
+
+    return {
+        "avg" : avg,
+        "max" : max_score,
+        "min" : min_score,
+        "grade" : grades
+    }
+        
+
+a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+print(process(a))
