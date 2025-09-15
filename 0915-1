@@ -34,3 +34,29 @@ def process(data):
 
 a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 print(process(a))
+
+
+# pythonic version
+
+def process2(data):
+    avg = sum(data) / len(data)
+    max_score = max(data)
+    min_score = min(data)
+
+    grade = lambda s: (
+        'A' if s >= 90 else
+        'B' if s >= 80 else
+        'C' if s >= 70 else
+        'D' if s >= 60 else
+        'F'
+    )
+
+    return {
+        "average": avg,
+        "max": max_score,
+        "min": min_score,
+        "grades": [grade(s) for s in data]
+    }
+
+a = [10, 20, 30, 40, 50, 85, 92, 76]
+print(process2(a))
