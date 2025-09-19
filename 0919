@@ -1,0 +1,62 @@
+import math
+
+def calculate_t_statistic(sample_data, hypothesized_mean):
+    """
+    단일 표본 t-검정을 위한 T 통계량을 계산하는 함수
+    
+    Args:
+        sample_data: 표본 데이터 리스트
+        hypothesized_mean: 가설평균 (μ₀)
+    
+    Returns:
+        dict: {'t_statistic': t 통계량, 'sample_mean': 표본평균, 'sample_std': 표본표준편차, 'standard_error': 표준오차}
+    """
+    n = len(sample_data)
+    
+    # 표본 크기가 2 미만인 경우
+    if n < 2:
+        return {
+            't_statistic': 0,
+            'sample_mean': sum(sample_data) / n if n > 0 else 0,
+            'sample_std': 0,
+            'standard_error': 0,
+            'error': '표본 크기가 2 미만입니다. t-검정을 수행할 수 없습니다.'
+        }
+    
+    # 표본평균 계산
+    sample_mean = sum(sample_data) / n
+    
+    # 표본표준편차 계산
+    squared_deviations = [(x - sample_mean) ** 2 for x in sample_data]
+    sample_variance = sum(squared_deviations) / (n - 1)
+    sample_std = math.sqrt(sample_variance)
+    
+    # 표준오차 계산
+    standard_error = sample_std / math.sqrt(n)
+    
+    # T 통계량 계산
+    if standard_error == 0:
+        t_statistic = 0
+    else:
+        t_statistic = (sample_mean - hypothesized_mean) / standard_error
+    
+    return {
+        't_statistic': round(t_statistic, 4),
+        'sample_mean': round(sample_mean, 4),
+        'sample_std': round(sample_std, 4),
+        'standard_error': round(standard_error, 4)
+    }
+
+# 테스트 1: 성적 데이터 (가설: 평균이 90점)
+print("=== 테스트 1: 성적 데이터 (가설평균 = 90) ===")
+scores = [85, 92, 78, 96, 88, 91, 83, 89, 94, 87]
+result1 = calculate_t_statistic(scores, 90)
+print(f"표본 데이터: {scores}")
+print(f"표본크기: {len(scores)}")
+print(f"표본평균: {result1['sample_mean']}")
+print(f"표본표준편차: {result1['sample_std']}")
+print(f"표준오차: {result1['standard_error']}")
+print(f"가설평균: 90")
+print(f"T 통계량: {result1['t_statistic']}")
+
+print("\n" + "="*50)
