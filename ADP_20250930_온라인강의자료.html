@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통계적 가설검정 문제 모음</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .problem-section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .hypothesis {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        
+        .conditions {
+            background: #f0f8f0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+            margin: 15px 0;
+        }
+        
+        .formula {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        
+        .checklist {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        em {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', monospace;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>통계적 가설검정 문제 모음</h1>
+        <p style="text-align: center; color: #7f8c8d; font-style: italic;">Statistical Hypothesis Testing Problems</p>
+        
+        <hr>
+        
+        <div class="problem-section">
+            <h2><span class="emoji">📊</span> 문제 1: 일표본 t검정 (One-sample t-test)</h2>
+            
+            <p>어떤 제약회사에서 생산하는 비타민 C 정제의 비타민 C 함량이 <strong>평균 500mg</strong>이라고 주장하고 있다. 이를 검증하기 위해 <strong>20개의 표본</strong>을 무작위로 선택하여 비타민 C 함량을 측정했다.</p>
+            
+            <p><strong>α = 0.05 수준</strong>에서 제약회사의 주장이 맞는지 검정하시오. (양측검정)</p>
+            
+            <div class="hypothesis">
+                <h3>가설 설정</h3>
+                <ul>
+                    <li><strong>H₀</strong>: μ = 500 (제약회사의 주장이 맞다)</li>
+                    <li><strong>H₁</strong>: μ ≠ 500 (제약회사의 주장이 틀리다)</li>
+                </ul>
+            </div>
+            
+            <div class="conditions">
+                <h3>검정 조건</h3>
+                <ul>
+                    <li><strong>유의수준</strong>: α = 0.05</li>
+                    <li><strong>검정방법</strong>: 양측검정</li>
+                    <li><strong>표본크기</strong>: n = 20</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="problem-section">
+            <h2><span class="emoji">📊</span> 문제 2: 대응표본 t검정 (Paired t-test)</h2>
+            
+            <p>새로운 다이어트 프로그램의 효과를 검증하기 위해 <strong>15명의 참가자</strong>를 대상으로 프로그램 시작 전과 후의 체중을 측정했다.</p>
+            
+            <p><strong>α = 0.05 수준</strong>에서 다이어트 프로그램이 체중 감소에 효과가 있는지 검정하시오. (단측검정: 체중이 감소했는가?)</p>
+            
+            <div class="hypothesis">
+                <h3>가설 설정</h3>
+                <ul>
+                    <li><strong>H₀</strong>: μd ≤ 0 (다이어트 프로그램의 효과가 없다)</li>
+                    <li><strong>H₁</strong>: μd > 0 (다이어트 프로그램이 체중 감소에 효과가 있다)</li>
+                </ul>
+                <p><em>여기서 d = 다이어트 전 체중 - 다이어트 후 체중</em></p>
+            </div>
+            
+            <div class="conditions">
+                <h3>검정 조건</h3>
+                <ul>
+                    <li><strong>유의수준</strong>: α = 0.05</li>
+                    <li><strong>검정방법</strong>: 우측 단측검정</li>
+                    <li><strong>표본크기</strong>: n = 15</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="problem-section">
+            <h2><span class="emoji">📊</span> 문제 3: 독립표본 t검정 (Independent samples t-test)</h2>
+            
+            <p>두 개의 서로 다른 교육 방법(A방법, B방법)의 효과를 비교하기 위해 A방법으로 교육받은 학생 <strong>12명</strong>과 B방법으로 교육받은 학생 <strong>15명</strong>의 시험 점수를 측정했다.</p>
+            
+            <p><strong>α = 0.05 수준</strong>에서 두 교육 방법 간에 평균 점수의 차이가 있는지 검정하시오. (양측검정)</p>
+            
+            <div class="hypothesis">
+                <h3>가설 설정</h3>
+                <ul>
+                    <li><strong>H₀</strong>: μA = μB (두 교육 방법의 평균 점수가 같다)</li>
+                    <li><strong>H₁</strong>: μA ≠ μB (두 교육 방법의 평균 점수가 다르다)</li>
+                </ul>
+            </div>
+            
+            <div class="conditions">
+                <h3>검정 조건</h3>
+                <ul>
+                    <li><strong>유의수준</strong>: α = 0.05</li>
+                    <li><strong>검정방법</strong>: 양측검정</li>
+                    <li><strong>가정</strong>: 등분산성</li>
+                    <li><strong>표본크기</strong>: nA = 12, nB = 15</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="problem-section">
+            <h2><span class="emoji">📊</span> 문제 4: 일원배치 분산분석 (One-way ANOVA)</h2>
+            
+            <p>세 가지 서로 다른 비료(A, B, C)가 식물의 성장에 미치는 영향을 조사하기 위해 각 비료를 사용한 식물의 키를 측정했다.</p>
+            
+            <ul>
+                <li><strong>A비료</strong>: 10개체</li>
+                <li><strong>B비료</strong>: 12개체</li>
+                <li><strong>C비료</strong>: 11개체</li>
+            </ul>
+            
+            <p><strong>α = 0.05 수준</strong>에서 세 비료 간에 평균 식물 키의 차이가 있는지 검정하시오.</p>
+            
+            <div class="hypothesis">
+                <h3>가설 설정</h3>
+                <ul>
+                    <li><strong>H₀</strong>: μA = μB = μC (세 비료의 평균 효과가 같다)</li>
+                    <li><strong>H₁</strong>: 적어도 하나의 평균이 다르다</li>
+                </ul>
+            </div>
+            
+            <div class="conditions">
+                <h3>검정 조건</h3>
+                <ul>
+                    <li><strong>유의수준</strong>: α = 0.05</li>
+                    <li><strong>검정방법</strong>: F검정</li>
+                    <li><strong>표본크기</strong>: nA = 10, nB = 12, nC = 11</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <h2><span class="emoji">📋</span> 참고사항</h2>
+        
+        <h3>기본 가정</h3>
+        <ol>
+            <li>모든 검정에서 <strong>정규성</strong>과 <strong>독립성</strong>을 가정합니다.</li>
+            <li>t검정에서는 <strong>t분포</strong>를, ANOVA에서는 <strong>F분포</strong>를 사용합니다.</li>
+            <li>각 검정의 검정통계량, p-value, 임계값을 계산하세요.</li>
+            <li>유의수준과 p-value를 비교하여 결론을 내리세요.</li>
+            <li>실제 상황에서의 의미를 해석하세요.</li>
+        </ol>
+        
+        <div class="checklist">
+            <h3><span class="emoji">✅</span> 계산해야 할 항목들</h3>
+            <ul>
+                <li>☐ 표본 통계량 (평균, 표준편차)</li>
+                <li>☐ 검정통계량 (t값 또는 F값)</li>
+                <li>☐ 자유도</li>
+                <li>☐ p-value</li>
+                <li>☐ 임계값</li>
+                <li>☐ 결론 (귀무가설 기각/채택)</li>
+                <li>☐ 실제적 해석</li>
+            </ul>
+        </div>
+        
+        <hr>
+        
+        <h2><span class="emoji">📐</span> 검정 공식 모음</h2>
+        
+        <h3>1. 일표본 t검정</h3>
+        <div class="formula">
+            <pre>
+t = (x̄ - μ₀) / (s / √n)
+자유도: df = n - 1
+            </pre>
+        </div>
+        
+        <h3>2. 대응표본 t검정</h3>
+        <div class="formula">
+            <pre>
+t = d̄ / (sd / √n)
+여기서 d̄ = 차이값들의 평균, sd = 차이값들의 표준편차
+자유도: df = n - 1
+            </pre>
+        </div>
+        
+        <h3>3. 독립표본 t검정 (등분산 가정)</h3>
+        <div class="formula">
+            <pre>
+t = (x̄₁ - x̄₂) / (sp√(1/n₁ + 1/n₂))
+합동표준편차: sp = √[((n₁-1)s₁² + (n₂-1)s₂²) / (n₁+n₂-2)]
+자유도: df = n₁ + n₂ - 2
+            </pre>
+        </div>
+        
+        <h3>4. 일원배치 분산분석</h3>
+        <div class="formula">
+            <pre>
+F = MSB / MSW
+MSB = SSB / (k-1)
+MSW = SSW / (N-k)
+SSB = Σnᵢ(x̄ᵢ - x̄)²
+SSW = ΣΣ(xᵢⱼ - x̄ᵢ)²
+자유도: df₁ = k-1, df₂ = N-k
+            </pre>
+        </div>
+        
+        <div class="footer">
+            <hr>
+            <p><em>© 2025 통계학 강의자료 | Statistical Hypothesis Testing Problems</em></p>
+        </div>
+    </div>
+</body>
+</html>
